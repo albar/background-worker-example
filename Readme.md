@@ -4,5 +4,11 @@ Run
 
 ```
 dotnet restore
-dotnet run -p src/QueueExample.csproj
+
+// Run WebApp Example
+dotnet run -p src/WebApp
+
+// OR
+// Run ConsoleApp Example
+dotnet run -p src/ConsoleApp
 ```
