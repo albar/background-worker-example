@@ -9,4 +9,8 @@
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson" Version="3.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Service\QueueExample.QueueService.csproj" />
+  </ItemGroup>
+
 </Project>

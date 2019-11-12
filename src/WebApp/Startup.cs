@@ -4,9 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using QueueExample.QueueService;
-using QueueExample.QueueService.Hubs;
+using QueueExample.WebApp.Hubs;
 
-namespace QueueExample
+namespace QueueExample.WebApp
 {
     public class Startup
     {

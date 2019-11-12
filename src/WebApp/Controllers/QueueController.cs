@@ -1,13 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using QueueExample.QueueService;
 using QueueExample.QueueService.EventHandlers;
-using QueueExample.QueueService.Hubs;
 using QueueExample.QueueService.Items;
+using QueueExample.WebApp.Hubs;
 
-namespace QueueExample.Controllers
+namespace QueueExample.WebApp.Controllers
 {
     public class QueueController
     {
