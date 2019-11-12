@@ -5,7 +5,7 @@ using QueueExample.QueueService.EventHandlers;
 
 namespace QueueExample.QueueService.Items
 {
-    public class DelayedQueueItem : IQueuedItem
+    public class DelayedQueueItem : IQueueItem
     {
         private readonly IQueueItemEventHandler _evt;
         private readonly string _title;

@@ -6,7 +6,7 @@ namespace QueueExample.QueueService
 {
     public interface IQueueHandler
     {
-        void Enqueue(IQueuedItem item);
-        Task<IQueuedItem> DequeueAsync(CancellationToken token);
+        void Enqueue(IQueueItem item);
+        Task<IQueueItem> DequeueAsync(CancellationToken token);
     }
 }

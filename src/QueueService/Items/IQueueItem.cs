@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace QueueExample.QueueService.Items
 {
-    public interface IQueuedItem
+    public interface IQueueItem
     {
         string Id { get; }
         Task DoSomethingAsync(CancellationToken token);
