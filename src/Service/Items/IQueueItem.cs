@@ -6,6 +6,8 @@ namespace QueueExample.QueueService.Items
     public interface IQueueItem
     {
         string Id { get; }
-        Task DoSomethingAsync(CancellationToken token);
+        Task<string> DoSomethingAsync(CancellationToken token);
+
+        Task HandleResultAsync(string result, CancellationToken token);
     }
 }

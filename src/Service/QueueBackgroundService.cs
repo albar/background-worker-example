@@ -19,7 +19,8 @@ namespace QueueExample.QueueService
             while(!token.IsCancellationRequested)
             {
                 var item = await _queue.DequeueAsync(token);
-                await item.DoSomethingAsync(token);
+                var result = await item.DoSomethingAsync(token);
+                await item.HandleResultAsync(result, token);
             }
         }
     }

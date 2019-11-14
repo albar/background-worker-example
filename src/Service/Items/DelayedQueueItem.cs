@@ -24,7 +24,7 @@ namespace QueueExample.QueueService.Items
 
         public string Id { get;}
 
-        public async Task DoSomethingAsync(CancellationToken token)
+        public async Task<string> DoSomethingAsync(CancellationToken token)
         {
             // notify event handler that the item is running
             await _evt.ItemIsRunning(Id);
@@ -34,6 +34,14 @@ namespace QueueExample.QueueService.Items
 
             // // notify event handler that the item is completed and send the message
             await _evt.ItemIsCompleted(Id, _message);
+
+            return _message;
+        }
+
+        public Task HandleResultAsync(string result, CancellationToken token)
+        {
+            // handle the result
+            return Task.CompletedTask;
         }
     }
 }
