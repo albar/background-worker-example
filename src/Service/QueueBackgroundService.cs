@@ -16,11 +16,10 @@ namespace QueueExample.QueueService
 
         protected override async Task ExecuteAsync(CancellationToken token)
         {
-            while(!token.IsCancellationRequested)
+            while (!token.IsCancellationRequested)
             {
                 var item = await _queue.DequeueAsync(token);
-                var result = await item.DoSomethingAsync(token);
-                await item.HandleResultAsync(result, token);
+                await item.HandleAsync(token);
             }
         }
     }
