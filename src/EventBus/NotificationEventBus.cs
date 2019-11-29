@@ -30,10 +30,5 @@ namespace QueueExample.EventBus
         {
             OnShowItem(item);
         }
-
-        public void AddToStorage(params Item[] item)
-        {
-            _storage.Store(item);
-        }
     }
 }

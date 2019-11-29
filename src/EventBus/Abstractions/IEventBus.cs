@@ -10,6 +10,5 @@ namespace QueueExample.EventBus.Abstractions
 
         void Notify(IEnumerable<Item> items);
         void ShowItem(Item item);
-        void AddToStorage(params Item[] item);
     }
 }

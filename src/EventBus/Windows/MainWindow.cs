@@ -6,11 +6,15 @@ namespace QueueExample.EventBus.Windows
     {
         private readonly IEventBus _bus;
         private readonly IServiceClient _client;
+        private readonly IStorage _storage;
 
-        public MainWindow(IEventBus bus, IServiceClient client)
+        public MainWindow(IEventBus bus,
+            IServiceClient client,
+            IStorage storage)
         {
             _bus = bus;
             _client = client;
+            _storage = storage;
             _bus.OnShowItem += OnShowItem;
         }
 
@@ -23,7 +27,7 @@ namespace QueueExample.EventBus.Windows
         {
             Item item; // get the item from the form
             _client.StoreAsync(item).Wait();
-            _bus.AddToStorage(item);
+            _storage.Store(item);
         }
     }
 }
