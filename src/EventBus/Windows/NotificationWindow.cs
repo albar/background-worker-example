@@ -1,7 +1,7 @@
 using System;
-using QueueExample.EventBus.Service;
+using QueueExample.EventBus.Abstractions;
 
-namespace QueueExample.EventBus
+namespace QueueExample.EventBus.Windows
 {
     public class NotificationWindow
     {
@@ -21,11 +21,11 @@ namespace QueueExample.EventBus
 
         private Item FindItem()
         {
-            // find specified item
+            // Get selected item from notification window
             throw new NotImplementedException();
         }
 
-        private void OnNewNotification(NotificationItem item)
+        private void OnNewNotification(Item item)
         {
             // show notification
         }

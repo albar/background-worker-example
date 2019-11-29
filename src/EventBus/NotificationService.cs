@@ -1,18 +1,20 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
+using QueueExample.EventBus.Abstractions;
 
-namespace QueueExample.EventBus.Service
+namespace QueueExample.EventBus
 {
     public class NotificationService : BackgroundService
     {
         private readonly IEventBus _bus;
+        private readonly IServiceClient _client;
 
-        public NotificationService(IEventBus bus)
+        public NotificationService(IEventBus bus, IServiceClient client)
         {
             _bus = bus;
+            _client = client;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -20,7 +22,7 @@ namespace QueueExample.EventBus.Service
             while (!stoppingToken.IsCancellationRequested)
             {
                 // get notifications
-                var notifications = await GetNotificationAsync();
+                var notifications = await _client.GetNotificationsAsync();
 
                 // notify event bus
                 _bus.Notify(notifications);
@@ -28,12 +30,6 @@ namespace QueueExample.EventBus.Service
                 // wait for 10 seconds
                 await Task.Delay(TimeSpan.FromSeconds(10));
             }
-        }
-
-        private Task<IEnumerable<NotificationItem>> GetNotificationAsync()
-        {
-            // request notification from server
-            throw new NotImplementedException();
         }
     }
 }

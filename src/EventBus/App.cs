@@ -1,8 +1,8 @@
-using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using QueueExample.EventBus.Service;
+using QueueExample.EventBus.Abstractions;
+using QueueExample.EventBus.Windows;
 
 namespace QueueExample.EventBus
 {
@@ -43,6 +43,7 @@ namespace QueueExample.EventBus
         {
             services.AddHostedService<NotificationService>();
             services.AddSingleton<IEventBus, NotificationEventBus>();
+            // services.AddSingleton<IStorage, ??>() // implement the storage
             services.AddSingleton<MainWindow>();
             services.AddSingleton<NotificationWindow>();
         }
